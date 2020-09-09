@@ -10,7 +10,15 @@ Source code for the new DHS Schedule App for the 2020-21 school year.
 
 # About the app
 
-This app is built using [flutter](https://flutter.dev). The schedule is stored in [assets/schedule.yaml](assets/schedule.yaml), along with exceptional schedules that don't follow the typical Monday-Friday schedule.
+This app is built using [flutter](https://flutter.dev). Flutter uses the Dart programming language and mostly adheres by the material design guidelines.
+
+## Schedule configuration
+
+The schedule is stored in [assets/schedule.yaml](assets/schedule.yaml), along with exceptional schedules that don't follow the typical Monday-Friday schedule. If a day doesn't match said schedule, it is marked under `exceptions`.
+
+## Upcoming Events
+
+The list of upcoming events is dynamic, and is hosted on a Google Spreadsheet.
 
 # Contributors
 
