@@ -31,7 +31,7 @@ class _AboutView extends State<AboutView> {
       backgroundColor: Colors.grey.shade50,
       appBar: appBar,
       body: Center(
-        child: Text("hi"),
+        child: Text("hi"), // TODO: add content about the app
       ),
     );
   }
