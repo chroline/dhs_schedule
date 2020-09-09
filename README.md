@@ -2,11 +2,13 @@
 
 <img src="assets/DHS_Warrior_Logo.png" width="128px" />
 
-# DHS Schedule App
+### DHS Schedule App
 
 Source code for the new DHS Schedule App for the 2020-21 school year.
 
 </div>
+
+---
 
 # About the app
 
