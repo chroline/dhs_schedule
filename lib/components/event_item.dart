@@ -85,6 +85,7 @@ class EventItem extends StatelessWidget {
                           title: event.name,
                           description: event.desc,
                           location: event.location,
+                          timeZone: "GMT-5",
                           startDate: event.time,
                           endDate: event.time.add(Duration(hours: 1))));
                     },

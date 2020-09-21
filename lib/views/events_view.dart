@@ -88,6 +88,7 @@ class _EventsView extends State<EventsView> {
               ),
             );
           } else {
+            print(snapshot.error);
             return LoadingView();
           }
         },
@@ -106,7 +107,8 @@ class _EventsView extends State<EventsView> {
               time: _timestampToDateTime(element[3])
                   .add(_timestampToDuration(element[4])),
               location: element[5]))
-          .toList());
+          .toList()
+            ..sort((e1, e2) => e1.time.isAfter(e2.time) ? 1 : -1));
 
   void _showHelp() => showDialog(
       context: context,

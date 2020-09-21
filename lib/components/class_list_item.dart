@@ -142,7 +142,7 @@ class _ClassListItem extends State<ClassListItem> {
                               Text(
                                 widget.name,
                                 style: TextStyle(
-                                    fontSize: 20,
+                                    fontSize: 18,
                                     fontWeight: FontWeight.w500,
                                     color: titleColor),
                               )
@@ -154,7 +154,7 @@ class _ClassListItem extends State<ClassListItem> {
                         padding: EdgeInsets.only(right: 20),
                         child: Text(
                           "${widget.start.format(context)} — ${widget.end.format(context)}",
-                          style: TextStyle(fontSize: 15, color: timeColor),
+                          style: TextStyle(fontSize: 12, color: timeColor),
                         ),
                       )
                     ],
