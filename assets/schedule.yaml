@@ -1,154 +1,253 @@
-version: 2020.2
+version: 2020.3
 
 schedules:
   LS:
-    - name:  Homeroom
+    - name: Homeroom
       start: 9:50
-      end:   10:05
+      end: 10:05
 
-    - name:  Period 1
+    - name: Period 1
       start: 10:10
-      end:   10:40
+      end: 10:40
 
-    - name:  Period 2
+    - name: Period 2
       start: 10:45
-      end:   11:15
+      end: 11:15
 
-    - name:  Period 3
+    - name: Period 3
       start: 11:20
-      end:   11:50
+      end: 11:50
 
-    - name:  Period 4
+    - name: Period 4
       start: 11:55
-      end:   12:25
+      end: 12:25
 
-    - name:  Period 5
+    - name: Period 5
       start: 12:55
-      end:   13:25
+      end: 13:25
 
-    - name:  Period 6
+    - name: Period 6
       start: 13:30
-      end:   14:00
+      end: 14:00
 
-    - name:  Period 7
+    - name: Period 7
       start: 14:05
-      end:   14:35
+      end: 14:35
 
-    - name:  Period 8
+    - name: Period 8
       start: 14:40
-      end:   15:10
+      end: 15:10
+
   "78":
-    - name:  Early Bird
+    - name: Early Bird
       start: 7:15
-      end:   8:00
+      end: 8:00
 
-    - name:  Period 1
+    - name: Period 1
       start: 8:15
-      end:   9:05
+      end: 9:05
 
-    - name:  Period 2
+    - name: Period 2
       start: 9:20
-      end:   10:10
+      end: 10:10
 
-    - name:  Period 3
+    - name: Period 3
       start: 10:25
-      end:   11:15
+      end: 11:15
 
-    - name:  Period 4
+    - name: Period 4
       start: 12:15
-      end:   13:05
+      end: 13:05
 
-    - name:  Period 5
+    - name: Period 5
       start: 13:20
-      end:   14:10
+      end: 14:10
 
-    - name:  Period 6
+    - name: Period 6
       start: 14:25
-      end:   15:15
+      end: 15:15
+
   "56":
-    - name:  Early Bird
+    - name: Early Bird
       start: 7:15
-      end:   8:00
+      end: 8:00
 
-    - name:  Period 1
+    - name: Period 1
       start: 8:15
-      end:   9:05
+      end: 9:05
 
-    - name:  Period 2
+    - name: Period 2
       start: 9:20
-      end:   10:10
+      end: 10:10
 
-    - name:  Period 3
+    - name: Period 3
       start: 10:25
-      end:   11:15
+      end: 11:15
 
-    - name:  Period 4
+    - name: Period 4
       start: 12:15
-      end:   13:05
+      end: 13:05
 
-    - name:  Period 7
+    - name: Period 7
       start: 13:20
-      end:   14:10
+      end: 14:10
 
-    - name:  Period 8
+    - name: Period 8
       start: 14:25
-      end:   15:15
+      end: 15:15
+
   "34":
-    - name:  Early Bird
+    - name: Early Bird
       start: 7:15
-      end:   8:00
+      end: 8:00
 
-    - name:  Period 1
+    - name: Period 1
       start: 8:15
-      end:   9:05
+      end: 9:05
 
-    - name:  Period 2
+    - name: Period 2
       start: 9:20
-      end:   10:10
+      end: 10:10
 
-    - name:  Period 5
+    - name: Period 5
       start: 10:25
-      end:   11:15
+      end: 11:15
 
-    - name:  Period 6
+    - name: Period 6
       start: 12:15
-      end:   13:05
+      end: 13:05
 
-    - name:  Period 7
+    - name: Period 7
       start: 13:20
-      end:   14:10
+      end: 14:10
 
-    - name:  Period 8
+    - name: Period 8
       start: 14:25
-      end:   15:15
+      end: 15:15
+
   "12":
-    - name:  Early Bird
+    - name: Early Bird
       start: 7:15
-      end:   8:00
+      end: 8:00
 
-    - name:  Period 3
+    - name: Period 3
       start: 8:15
-      end:   9:05
+      end: 9:05
 
-    - name:  Period 4
+    - name: Period 4
       start: 9:20
-      end:   10:10
+      end: 10:10
 
-    - name:  Period 5
+    - name: Period 5
       start: 10:25
-      end:   11:15
+      end: 11:15
 
-    - name:  Period 6
+    - name: Period 6
       start: 12:15
-      end:   13:05
+      end: 13:05
 
-    - name:  Period 7
+    - name: Period 7
       start: 13:20
-      end:   14:10
+      end: 14:10
 
-    - name:  Period 8
+    - name: Period 8
       start: 14:25
-      end:   15:15
+      end: 15:15
+
+  "Finals Week: 12-14":
+    - name: Early Bird
+      start: 7:15
+      end: 8:30
+
+    - name: Period 1
+      start: 9:45
+      end: 11:00
+
+    - name: Period 2
+      start: 12:45
+      end: 2:00
+
+  "Finals Week: 12-15":
+    - name: Early Bird
+      start: 7:15
+      end: 8:30
+
+    - name: Period 3
+      start: 9:45
+      end: 11:00
+
+    - name: Period 4
+      start: 12:45
+      end: 2:00
+
+  "Finals Week: 12-16":
+    - name: Early Bird
+      start: 7:15
+      end: 8:30
+
+    - name: Period 5
+      start: 9:45
+      end: 11:00
+
+    - name: Period 6
+      start: 12:45
+      end: 2:00
+
+  "Finals Week: 12-17":
+    - name: Early Bird
+      start: 7:15
+      end: 8:30
+
+    - name: Period 7
+      start: 9:45
+      end: 11:00
+
+    - name: Period 8
+      start: 12:45
+      end: 2:00
 
 exceptions:
-  2020-09-07: ~
+  2020-11-27: ~
+  2020-11-28: ~
+  2020-12-14: "Finals Week: 12-14"
+  2020-12-15: "Finals Week: 12-15"
+  2020-12-16: "Finals Week: 12-16"
+  2020-12-17: "Finals Week: 12-17"
+  2020-12-18: ~
+  2020-12-21: ~
+  2020-12-22: ~
+  2020-12-23: ~
+  2020-12-24: ~
+  2020-12-25: ~
+  2020-12-28: ~
+  2020-12-29: ~
+  2020-12-30: ~
+  2020-12-31: ~
+  2021-01-01: ~
+  2021-01-04: ~
+  2021-01-18: ~
+  2021-01-25: "78"
+  2021-01-26: ~
+  2021-02-15: ~
+  2021-02-16: ~
+  2021-02-17: "100"
+  2021-02-18: "100"
+  2021-02-19: "100"
+  2021-03-22: ~
+  2021-03-23: ~
+  2021-03-24: ~
+  2021-03-25: ~
+  2021-03-26: ~
+  2021-03-29: "78"
+  2021-03-30: "56"
+  2021-03-31: "34"
+  2021-04-01: "12"
+  2021-04-02: ~
+  2021-04-13: ~
+  2021-04-14: ~
+  2021-04-15: "12"
+  2021-04-16: "100"
+  2021-05-24: ~
+  2021-05-25: ~
+  2021-05-26: ~
+  2021-05-27: ~

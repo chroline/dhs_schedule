@@ -1,39 +1,27 @@
-import 'package:dhs_schedule/util/ctrl/navigation_controller.dart';
-import 'package:dhs_schedule/util/views.dart';
+import 'package:dhs_schedule/util/ctrl/configuration.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 import 'package:provider/provider.dart';
 
-class DrawerItem extends StatefulWidget {
-  final View view;
+class DrawerSwitch extends StatefulWidget {
   final IconData icon;
   final String text;
 
-  const DrawerItem({Key key, this.view, this.icon, this.text})
-      : super(key: key);
+  const DrawerSwitch({Key key, this.icon, this.text}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() => _DrawerItem();
 }
 
-class _DrawerItem extends State<DrawerItem> {
-  Color get foregroundColor {
-    if (Provider.of<NavigationController>(context).view == widget.view)
-      return Colors.red.shade700;
-    return Colors.grey.shade900;
-  }
-
-  Color get backgroundColor {
-    if (Provider.of<NavigationController>(context).view == widget.view)
-      return Colors.red.shade50;
-    return Colors.transparent;
-  }
+class _DrawerItem extends State<DrawerSwitch> {
+  final Configuration configuration = GetIt.I<Configuration>();
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       child: Material(
-        color: backgroundColor,
+        color: Colors.transparent,
         borderRadius: BorderRadius.all(Radius.circular(10)),
         child: InkWell(
           borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -44,7 +32,7 @@ class _DrawerItem extends State<DrawerItem> {
               children: [
                 Icon(
                   widget.icon,
-                  color: foregroundColor,
+                  color: Colors.grey.shade900,
                 ),
                 Padding(
                   padding: EdgeInsets.only(left: 25),
@@ -53,17 +41,23 @@ class _DrawerItem extends State<DrawerItem> {
                   widget.text,
                   style: TextStyle(
                       fontSize: 17,
-                      color: foregroundColor,
+                      color: Colors.grey.shade900,
                       fontWeight: FontWeight.w500),
+                ),
+                Spacer(),
+                ChangeNotifierProvider.value(
+                  value: GetIt.I.get<Configuration>(),
+                  child: Consumer<Configuration>(
+                    builder: (a, b, c) => Switch(
+                      value: GetIt.I<Configuration>().notifs,
+                      onChanged: (value) =>
+                          GetIt.I<Configuration>().toggleNotifs(context),
+                    ),
+                  ),
                 )
               ],
             ),
           ),
-          onTap: () {
-            Provider.of<NavigationController>(context, listen: false)
-                .update(widget.view);
-            Navigator.pop(context);
-          },
         ),
       ),
     );

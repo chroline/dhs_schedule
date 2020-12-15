@@ -1,5 +1,6 @@
-import 'package:dhs_schedule/util/icons.dart';
 import 'package:flutter/material.dart';
+
+import '../../util/icons.dart';
 
 class IconPicker extends StatelessWidget {
   final Function(MapEntry<dynamic, dynamic>) onTap;
@@ -11,8 +12,7 @@ class IconPicker extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
           child: Container(
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(100))),
+            decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(100))),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

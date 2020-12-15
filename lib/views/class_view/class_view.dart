@@ -1,10 +1,10 @@
-import 'package:dhs_schedule/util/colors.dart';
-import 'package:dhs_schedule/util/ctrl/configuration.dart';
-import 'package:dhs_schedule/util/icons.dart';
-import 'package:dhs_schedule/util/schemas/period_configuration.dart';
+import 'package:dhs_schedule/main.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
+import '../../util/colors.dart';
+import '../../util/ctrl/configuration.dart';
+import '../../util/icons.dart';
 import 'color_picker.dart';
 import 'icon_picker.dart';
 
@@ -16,23 +16,23 @@ class ClassView extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _ClassView();
 
-  static void showClassView(String id, BuildContext context) =>
-      showModalBottomSheet(
-          context: context,
-          isScrollControlled: true,
-          builder: (context) => Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  ClassView(
-                    id: id,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(
-                        bottom: MediaQuery.of(context).viewInsets.bottom),
-                  ),
-                ],
-              ));
+  static void showClassView(String id) => showModalBottomSheet(
+      context: mainKey.currentContext,
+      isScrollControlled: true,
+      builder: (context) => Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              ClassView(
+                id: id,
+              ),
+              Padding(
+                padding: EdgeInsets.only(
+                    bottom: MediaQuery.of(context).viewInsets.bottom),
+              ),
+            ],
+          ),
+      elevation: 3);
 }
 
 class _ClassView extends State<ClassView> {
@@ -79,8 +79,9 @@ class _ClassView extends State<ClassView> {
             controller: nameCtrl,
             onEditingComplete: onSave,
             onTap: () {
-              if (nameCtrl.value.text == widget.id)
+              if (nameCtrl.value.text == widget.id) {
                 nameCtrl.value = TextEditingValue(text: "");
+              }
             },
             keyboardType: TextInputType.text,
             maxLines: null,
@@ -143,7 +144,7 @@ class _ClassView extends State<ClassView> {
   @override
   void initState() {
     super.initState();
-    PeriodConfiguration i = GetIt.I<Configuration>().periods[widget.id];
+    var i = GetIt.I<Configuration>().periods[widget.id];
     color = colors[i.color];
     icon = MapEntry(i.icon, allIcons[i.icon]);
     nameCtrl.value = TextEditingValue(text: i.name);
@@ -189,9 +190,9 @@ class _ClassView extends State<ClassView> {
         context: context,
         child: Dialog(
           child: ColorPicker(
-            onTap: (String theColor) {
+            onTap: (theColor) {
               GetIt.I<Configuration>()
-                  .update(widget.id, color: colors[theColor]);
+                  .updatePeriod(widget.id, color: colors[theColor]);
               setState(() => color = colors[theColor]);
               Navigator.pop(context);
             },
@@ -205,8 +206,8 @@ class _ClassView extends State<ClassView> {
         context: context,
         child: Dialog(
           child: IconPicker(
-            onTap: (MapEntry k) {
-              GetIt.I<Configuration>().update(widget.id, icon: k.key);
+            onTap: (k) {
+              GetIt.I<Configuration>().updatePeriod(widget.id, icon: k.key);
               setState(() => icon = k);
               Navigator.pop(context);
             },
@@ -215,7 +216,7 @@ class _ClassView extends State<ClassView> {
   }
 
   void _saveText() {
-    GetIt.I<Configuration>().update(widget.id, name: nameCtrl.value.text);
+    GetIt.I<Configuration>().updatePeriod(widget.id, name: nameCtrl.value.text);
     FocusScope.of(context).unfocus();
   }
 }

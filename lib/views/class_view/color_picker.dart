@@ -1,5 +1,6 @@
-import 'package:dhs_schedule/util/colors.dart';
 import 'package:flutter/material.dart';
+
+import '../../util/colors.dart';
 
 class ColorPicker extends StatelessWidget {
   final Function(String) onTap;
@@ -32,16 +33,14 @@ class ColorPicker extends StatelessWidget {
               LayoutBuilder(
                 builder: (context, constrains) {
                   return GridView.count(
-                    physics: new NeverScrollableScrollPhysics(),
+                    physics: NeverScrollableScrollPhysics(),
                     crossAxisCount: 4,
                     shrinkWrap: true,
-                    children: (Map()
+                    children: ({}
                           ..addEntries(colors.entries.take(4))
-                          ..addEntries(
-                              colors.entries.skip(4).take(4).toList().reversed)
+                          ..addEntries(colors.entries.skip(4).take(4).toList().reversed)
                           ..addEntries(colors.entries.skip(8).take(4))
-                          ..addEntries(
-                              colors.entries.skip(12).toList().reversed))
+                          ..addEntries(colors.entries.skip(12).toList().reversed))
                         .entries
                         .map(color)
                         .toList(),

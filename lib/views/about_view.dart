@@ -1,5 +1,7 @@
-import 'package:dhs_schedule/main.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+import '../main.dart';
 
 class AboutView extends StatefulWidget {
   @override
@@ -13,8 +15,7 @@ class _AboutView extends State<AboutView> {
         brightness: Brightness.light,
         title: Text(
           "About the app",
-          style: TextStyle(
-              fontWeight: FontWeight.w600, color: Colors.red.shade700),
+          style: TextStyle(fontWeight: FontWeight.w600, color: Colors.red.shade700),
         ),
         centerTitle: true,
         leading: IconButton(
@@ -31,9 +32,67 @@ class _AboutView extends State<AboutView> {
     return Scaffold(
       backgroundColor: Colors.grey.shade50,
       appBar: appBar,
-      body: Center(
-        child: Text(
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed lectus vestibulum mattis ullamcorper velit sed ullamcorper. Amet volutpat consequat mauris nunc. In eu mi bibendum neque egestas. Ridiculus mus mauris vitae ultricies leo integer malesuada nunc. Scelerisque mauris pellentesque pulvinar pellentesque habitant morbi. Bibendum at varius vel pharetra vel turpis nunc eget. At in tellus integer feugiat. Ornare arcu odio ut sem. Aliquet bibendum enim facilisis gravida neque convallis. Nisl pretium fusce id velit ut. Velit laoreet id donec ultrices tincidunt. Egestas integer eget aliquet nibh. Tristique magna sit amet purus gravida quis blandit turpis cursus. Vitae turpis massa sed elementum tempus egestas sed sed. Viverra nam libero justo laoreet sit. Nam at lectus urna duis convallis. Sed enim ut sem viverra aliquet eget sit amet tellus. Pulvinar mattis nunc sed blandit libero volutpat. Platea dictumst quisque sagittis purus sit amet."), // TODO: add content about the app
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 54),
+        child: Center(
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SizedBox(
+                  width: double.infinity,
+                  child: TextButton.icon(
+                    onPressed: () => launch("https://forms.gle/W4N5rpjo2jArKbERA"),
+                    icon: Icon(Icons.speaker_notes),
+                    label: Text("PROVIDE FEEDBACK"),
+                    style: TextButton.styleFrom(primary: Colors.grey.shade900),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(5),
+                ),
+                Divider(),
+                Padding(
+                  padding: EdgeInsets.all(5),
+                ),
+                SizedBox(
+                  width: double.infinity,
+                  child: TextButton.icon(
+                    onPressed: () {
+                      showAboutDialog(
+                          context: context,
+                          applicationLegalese:
+                              "App built by Cole Gawin. Source code available under the GNU General Public License v3.0");
+                    },
+                    icon: Icon(Icons.perm_device_information),
+                    label: Text("APP DETAILS"),
+                    style: TextButton.styleFrom(primary: Colors.grey.shade900),
+                  ),
+                ),
+                SizedBox(
+                  width: double.infinity,
+                  child: TextButton.icon(
+                    onPressed: () => launch("https://github.com/chroline/dhs_schedule"),
+                    icon: Icon(Icons.code),
+                    label: Text("VIEW CODE ON GITHUB"),
+                    style: TextButton.styleFrom(primary: Colors.grey.shade900),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(5),
+                ),
+                Divider(),
+                Padding(
+                  padding: EdgeInsets.all(15),
+                ),
+                Text(
+                  '"Deerfield High School", "DHS", "Warriors", and the Warriors logo are property of their respective owners.',
+                  style: TextStyle(fontStyle: FontStyle.italic),
+                ),
+              ], // TODO: add content about the app
+            ),
+          ),
+        ),
       ),
     );
   }

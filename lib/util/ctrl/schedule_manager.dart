@@ -1,49 +1,44 @@
-import 'package:dhs_schedule/util/schemas/period.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get_it/get_it.dart';
 import 'package:yaml/yaml.dart';
 
-class ScheduleManager {
-  static double version;
-  static Map<String, List<Period>> schedules = Map();
-  static Map<DateTime, String> exceptions = Map();
+import '../schemas/period.dart';
 
-  static load() async {
-    String doc = (await rootBundle.loadString("assets/schedule.yaml"));
+class ScheduleManager {
+  double version;
+  Map<String, List<Period>> schedules = {};
+  Map<DateTime, String> exceptions = {};
+
+  load() async {
+    var doc = (await rootBundle.loadString("assets/schedule.yaml"));
     var input = loadYaml(doc);
 
     version = input['version'];
 
     (input['schedules'] as Map).forEach((day, value) {
-      schedules["$day"] = [];
-      value.forEach((element) {
-        List<String> startTime = element['start'].toString().split(":");
-        List<String> endTime = element['end'].toString().split(":");
-        schedules["$day"].add(Period(
-          name: element['name'],
-          start: TimeOfDay(
-              hour: int.parse(startTime[0]), minute: int.parse(startTime[1])),
-          end: TimeOfDay(
-              hour: int.parse(endTime[0]), minute: int.parse(endTime[1])),
-        ));
-      });
+      schedules[day] = (value as List<dynamic>).map((element) {
+        var startTime = element['start'].toString().split(":");
+        var endTime = element['end'].toString().split(":");
+        return Period(
+          id: element['name'],
+          start: TimeOfDay(hour: int.parse(startTime[0]), minute: int.parse(startTime[1])),
+          end: TimeOfDay(hour: int.parse(endTime[0]), minute: int.parse(endTime[1])),
+        );
+      }).toList();
     });
 
-    (input['exceptions'] as Map)
-        .forEach((day, value) => exceptions[DateTime.parse(day)] = value);
+    (input['exceptions'] as Map).forEach((day, value) => exceptions[DateTime.parse(day)] = value);
   }
 
-  static String getDaySchedule(DateTime date) {
+  String getScheduleName(DateTime date) {
     try {
       return exceptions.entries
-          .firstWhere(
-              (v) =>
-                  v.key.day == date.day &&
-                  v.key.month == date.month &&
-                  v.key.year == date.year,
+          .firstWhere((v) => v.key.day == date.day && v.key.month == date.month && v.key.year == date.year,
               orElse: null)
           .value;
-    } catch (e) {
+      // ignore: avoid_catching_errors
+    } on Error {
       switch (date.weekday) {
         case 1:
           return "LS";
@@ -60,22 +55,33 @@ class ScheduleManager {
     }
   }
 
-  static String getCurrentClass(List<Period> periods) {
-    DateTime now = DateTime.now();
-    Period period = periods.firstWhere((element) {
-      return (((now.hour * 60) + now.minute) >=
-              ((element.start.hour * 60) + element.start.minute)) &&
-          (((now.hour * 60) + now.minute) <=
-              ((element.end.hour * 60) + element.end.minute));
-    }, orElse: () => null);
-    if (period == null) return null;
-    return period.name;
+  List<Period> getSchedule(DateTime date) {
+    try {
+      return schedules[getScheduleName(date)];
+      // ignore: avoid_catches_without_on_clauses
+    } catch (e) {
+      return null;
+    }
   }
 
-  static Widget build(
-      {Widget Function(List<Period> periods, String daySchedule) builder,
-      DateTime date}) {
+  String getCurrentClass(List<Period> periods) {
+    var now = DateTime.now();
+    var period = periods.firstWhere((element) {
+      return (((now.hour * 60) + now.minute) >= ((element.start.hour * 60) + element.start.minute)) &&
+          (((now.hour * 60) + now.minute) <= ((element.end.hour * 60) + element.end.minute));
+    }, orElse: () => null);
+    if (period == null) return null;
+    return period.id;
+  }
+
+  Widget build({Widget Function(List<Period> periods, String daySchedule) builder, DateTime date}) {
     if (date == null) date = DateTime.now();
-    return builder(schedules[getDaySchedule(date)], getDaySchedule(date));
+    return builder(schedules[getScheduleName(date)], getScheduleName(date));
+  }
+
+  static init() async {
+    var manager = ScheduleManager();
+    await manager.load();
+    GetIt.I.registerSingleton<ScheduleManager>(manager);
   }
 }

@@ -15,7 +15,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.0.0+1
+version: 1.0.0+2
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -24,22 +24,34 @@ dependencies:
   flutter:
     sdk: flutter
 
-  google_fonts: ^1.1.0
   cupertino_icons: ^0.1.3
   flutter_icons: 1.1.0
 
+  flutter_local_notifications: 3.0.1
+  timezone: ^0.5.6
   get_it: 4.0.4
   yaml: 2.2.1
   shared_preferences: '>=0.5.0 <2.0.0'
   provider: 4.3.2+1
   intl: 0.16.1
-  gsheets: 0.2.5
+  url_launcher: ^5.7.10
   add_2_calendar: ^1.4.0
 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+  effective_dart: ^1.3.0
+  flutter_launcher_icons: "^0.8.0"
+
+flutter_icons:
+  image_path_android: "assets/launcher_icon.png"
+  image_path_ios: "assets/launcher_icon.png"
+  android: true # can specify file name here e.g. "ic_launcher"
+  ios: true # can specify file name here e.g. "My-Launcher-Icon"
+  adaptive_icon_foreground: "assets/adaptive_icon_foreground.png"
+  adaptive_icon_background: "#B71C1C"
 
 flutter:
   uses-material-design: true

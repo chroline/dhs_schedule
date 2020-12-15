@@ -1,6 +1,6 @@
-import 'package:dhs_schedule/main.dart';
 import 'package:flutter/material.dart';
 
+import '../../main.dart';
 import 'pages/all_schedules.dart';
 import 'pages/specific_date.dart';
 import 'pages/today.dart';
@@ -29,7 +29,7 @@ class _ScheduleView extends State<ScheduleView> {
         Theme(
           data: Theme.of(context).copyWith(
               colorScheme: ColorScheme.light(primary: Colors.red.shade700)),
-          child: new Builder(
+          child: Builder(
             builder: (context) => IconButton(
               icon: Icon(
                 Icons.event,
@@ -81,17 +81,17 @@ class _ScheduleView extends State<ScheduleView> {
   }
 
   void _openDayPicker(BuildContext context) async {
-    DateTime date = await showDatePicker(
+    var date = await showDatePicker(
         context: context,
         initialDate: DateTime.now().add(Duration(days: 1)),
         firstDate: DateTime.now().add(Duration(days: 1)),
-        lastDate: DateTime(2021, 6, 30));
-    print(date);
-    if (date != null)
+        lastDate: DateTime(2021, 5, 28));
+    if (date != null) {
       Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => SpecificDate(
                 date: date,
               )));
+    }
   }
 
   void _showHelp() => showDialog(
@@ -108,6 +108,8 @@ class _ScheduleView extends State<ScheduleView> {
               ),
               Text(
                   "On this view, you can see today's schedule under the TODAY tab, as well as all of your schedules under the ALL SCHEDULES tab."),
+              Text(
+                  "To customize the name, color, and icon of a class, tap on it."),
               RichText(
                 text: TextSpan(
                   style: TextStyle(color: Colors.black),
@@ -127,7 +129,7 @@ class _ScheduleView extends State<ScheduleView> {
                     TextSpan(text: ' button to jump to a specific date.'),
                   ],
                 ),
-              )
+              ),
             ],
           ),
         ),

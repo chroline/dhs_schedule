@@ -1,8 +1,9 @@
-import 'package:dhs_schedule/util/views.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'drawer_item.dart';
+import '../../util/views.dart';
+import '../atoms/drawer_item.dart';
+import '../molecules/drawer_switch.dart';
 
 class AppDrawer extends StatelessWidget {
   @override
@@ -31,10 +32,9 @@ class AppDrawer extends StatelessWidget {
               icon: Icons.schedule,
               text: "Schedule",
             ),
-            DrawerItem(
-              view: View.EVENTS,
-              icon: Icons.date_range,
-              text: "Upcoming Events",
+            DrawerSwitch(
+              icon: Icons.notifications_active,
+              text: "Notifications",
             ),
             Divider(),
             DrawerItem(

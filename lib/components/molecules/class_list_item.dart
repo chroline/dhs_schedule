@@ -12,16 +12,7 @@ class ClassListItem extends StatefulWidget {
   final bool isCurrent;
   final void Function() onTap;
 
-  ClassListItem(
-      {Key key,
-      this.name,
-      this.color,
-      this.icon,
-      this.onTap,
-      this.id,
-      this.start,
-      this.end,
-      this.isCurrent})
+  ClassListItem({Key key, this.name, this.color, this.icon, this.onTap, this.id, this.start, this.end, this.isCurrent})
       : super(key: key);
 
   @override
@@ -116,8 +107,7 @@ class _ClassListItem extends State<ClassListItem> {
                     children: [
                       Container(
                         child: Padding(
-                          padding: EdgeInsets.symmetric(
-                              vertical: 20, horizontal: 15),
+                          padding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
                           child: Icon(
                             widget.icon,
                             color: iconColor,
@@ -126,25 +116,19 @@ class _ClassListItem extends State<ClassListItem> {
                       ),
                       Expanded(
                         child: Padding(
-                          padding: EdgeInsets.symmetric(
-                              vertical: 20, horizontal: 15),
+                          padding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
                                 widget.id.toUpperCase(),
                                 style: TextStyle(
-                                    fontSize: 12,
-                                    color: subtitleColor,
-                                    fontWeight: FontWeight.w900,
-                                    letterSpacing: 2),
+                                    fontSize: 12, color: subtitleColor, fontWeight: FontWeight.w500, letterSpacing: 2),
                               ),
                               Text(
                                 widget.name,
-                                style: TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w500,
-                                    color: titleColor),
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: titleColor),
                               )
                             ],
                           ),
@@ -152,6 +136,7 @@ class _ClassListItem extends State<ClassListItem> {
                       ),
                       Padding(
                         padding: EdgeInsets.only(right: 20),
+                        // ignore: lines_longer_than_80_chars
                         child: Text(
                           "${widget.start.format(context)} — ${widget.end.format(context)}",
                           style: TextStyle(fontSize: 12, color: timeColor),
