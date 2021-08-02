@@ -13,8 +13,6 @@ Widget renderSpecificSchedule(List<Period>? periods, String? daySchedule) =>
                 parent: AlwaysScrollableScrollPhysics()),
             padding: const EdgeInsets.symmetric(vertical: 20),
             child: Column(
-              mainAxisSize: MainAxisSize.max,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: renderScheduleList(
                 periods: periods!,
                 onTap: ClassView.showClassView,
