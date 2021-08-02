@@ -1,0 +1,57 @@
+name: dhs_schedule
+description: new DHS Schedule App
+
+# The following line prevents the package from being accidentally published to
+# pub.dev using `pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+version: 2021.0.0
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  font_awesome_flutter: ^9.1.0
+  flutter_local_notifications: ^8.0.0
+  timezone: ^0.7.0
+  get_it: ^7.2.0
+  yaml: ^3.1.0
+  shared_preferences: ^2.0.6
+  provider: ^5.0.0
+  intl: ^0.17.0
+  url_launcher: ^6.0.9
+  desktop_window: ^0.4.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  pedantic: ^1.11.1
+  flutter_launcher_icons: ^0.9.1
+
+flutter_icons:
+  image_path_android: "assets/launcher_icon.png"
+  image_path_ios: "assets/launcher_icon.png"
+  android: true # can specify file name here e.g. "ic_launcher"
+  ios: true # can specify file name here e.g. "My-Launcher-Icon"
+  adaptive_icon_foreground: "assets/adaptive_icon_foreground.png"
+  adaptive_icon_background: "#B71C1C"
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/

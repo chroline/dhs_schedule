@@ -1,0 +1,269 @@
+version: 2021.1
+
+classes:
+  - Early Bird
+  - Homeroom
+  - Period 1
+  - Period 2
+  - Period 3
+  - Period 4
+  - Period 4-I
+  - Period 4-II
+  - Period 5
+  - Period 5-I
+  - Period 5-II
+  - Period 6
+  - Period 6-I
+  - Period 6-II
+  - Period 7
+  - Period 8
+
+schedules:
+  # NORMAL SCHEDULES
+  # LS, 78, 56, 34, 12, 100
+  LS:
+    - name: Early Bird
+      start: 9:00
+      end: 9:09
+    - name: Period 1
+      start: 9:14
+      end: 9:49
+    - name: Period 2
+      start: 9:54
+      end: 10:29
+    - name: Period 3
+      start: 10:34
+      end: 11:09
+    - name: Period 4
+      start: 11:14
+      end: 11:54
+    - name: Period 5-I
+      start: 11:59
+      end: 12:39
+    - name: Period 5-II
+      start: 12:34
+      end: 13:14
+    - name: Period 6
+      start: 13:19
+      end: 13:54
+    - name: Period 7
+      start: 13:59
+      end: 14:34
+    - name: Period 8
+      start: 14:39
+      end: 15:14
+  "78":
+    - name: Early Bird
+      start: 7:15
+      end: 8:05
+    - name: Period 1
+      start: 8:10
+      end: 9:07
+    - name: Homeroom
+      start: 9:12
+      end: 9:24
+    - name: Period 2
+      start: 9:29
+      end: 10:26
+    - name: Period 3
+      start: 10:31
+      end: 11:28
+    - name: Period 4-I
+      start: 11:37
+      end: 12:34
+    - name: Period 4-II
+      start: 12:13
+      end: 1:10
+    - name: Period 5
+      start: 13:15
+      end: 14:12
+    - name: Period 6
+      start: 14:17
+      end: 15:14
+  "56":
+    - name: Early Bird
+      start: 7:15
+      end: 8:05
+    - name: Period 1
+      start: 8:10
+      end: 9:07
+    - name: Homeroom
+      start: 9:12
+      end: 9:24
+    - name: Period 2
+      start: 9:29
+      end: 10:26
+    - name: Period 3
+      start: 10:31
+      end: 11:28
+    - name: Period 4-I
+      start: 11:37
+      end: 12:34
+    - name: Period 4-II
+      start: 12:13
+      end: 1:10
+    - name: Period 7
+      start: 13:15
+      end: 14:12
+    - name: Period 8
+      start: 14:17
+      end: 15:14
+  "34":
+    - name: Early Bird
+      start: 7:15
+      end: 8:05
+    - name: Period 1
+      start: 8:10
+      end: 9:07
+    - name: Homeroom
+      start: 9:12
+      end: 9:24
+    - name: Period 2
+      start: 9:29
+      end: 10:26
+    - name: Period 5
+      start: 10:31
+      end: 11:28
+    - name: Period 6-I
+      start: 11:37
+      end: 12:34
+    - name: Period 6-II
+      start: 12:13
+      end: 1:10
+    - name: Period 7
+      start: 13:15
+      end: 14:12
+    - name: Period 8
+      start: 14:17
+      end: 15:14
+  "12":
+    - name: Early Bird
+      start: 7:15
+      end: 8:05
+    - name: Period 3
+      start: 8:10
+      end: 9:07
+    - name: Homeroom
+      start: 9:12
+      end: 9:24
+    - name: Period 4
+      start: 9:29
+      end: 10:26
+    - name: Period 5
+      start: 10:31
+      end: 11:28
+    - name: Period 6-I
+      start: 11:37
+      end: 12:34
+    - name: Period 6-II
+      start: 12:13
+      end: 1:10
+    - name: Period 7
+      start: 13:15
+      end: 14:12
+    - name: Period 8
+      start: 14:17
+      end: 15:14
+  "100":
+    - name: Early Bird
+      start: 7:15
+      end: 8:05
+    - name: Period 1
+      start: 8:10
+      end: 8:52
+    - name: Period 2
+      start: 8:57
+      end: 9:39
+    - name: Period 3
+      start: 9:44
+      end: 10:26
+    - name: Period 4
+      start: 10:31
+      end: 11:17
+    - name: Period 5-I
+      start: 11:22
+      end: 12:08
+    - name: Period 5-II
+      start: 12:07
+      end: 12:53
+    - name: Period 6
+      start: 12:58
+      end: 13:40
+    - name: Period 7
+      start: 13:45
+      end: 14:27
+    - name: Period 8
+      start: 14:32
+      end: 15:14
+  # EXCEPTION SCHEDULES
+
+exceptions:
+  2021-08-18: "100"
+  2021-08-19: "100"
+  2021-08-20: "100"
+  2021-08-30: "78"
+  2021-08-31: "56"
+  2021-09-01: "34"
+  2021-09-02: "12"
+  2021-09-03: "LS"
+  2021-09-06: ~
+  2021-09-07: ~
+  2021-09-08: "100"
+  2021-09-09: "100"
+  2021-09-10: "100"
+  2021-09-13: "78"
+  2021-09-14: "56"
+  2021-09-15: "34"
+  2021-09-16: ~
+  2021-10-11: ~
+  2021-10-12: "100"
+  2021-10-13: ~
+  2021-11-08: "78"
+  2021-11-09: "56"
+  2021-11-10: "10"
+  2021-11-11: ~
+  2021-11-23: "100"
+  2021-11-24: ~
+  2021-11-25: ~
+  2021-11-26: ~
+  2021-12-14: ~
+  2021-12-15: ~
+  2021-12-16: ~
+  2021-12-17: ~
+  2021-12-20: ~
+  2021-12-21: ~
+  2021-12-22: ~
+  2021-12-23: ~
+  2021-12-24: ~
+  2021-12-27: ~
+  2021-12-28: ~
+  2021-12-29: ~
+  2021-12-30: ~
+  2021-12-31: ~
+  2022-01-17: ~
+  2022-01-18: ~
+  2022-01-19: "78"
+  2022-01-20: "56"
+  2022-01-21: "34"
+  2022-01-24: "12"
+  2022-02-21: ~
+  2022-02-22: ~
+  2022-02-23: "78"
+  2022-02-24: "56"
+  2022-02-25: "34"
+  2022-02-28: "12"
+  2022-03-07: ~
+  2022-03-21: ~
+  2022-03-22: ~
+  2022-03-23: ~
+  2022-03-24: ~
+  2022-03-25: ~
+  2022-04-12: "100"
+  2022-04-13: ~
+  2022-04-14: ~
+  2022-04-15: ~
+  2022-05-30: ~
+  2022-05-31: ~
+  2022-06-01: ~
+  2022-06-02: ~
+  2022-06-03: ~
