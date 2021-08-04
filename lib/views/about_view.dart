@@ -50,13 +50,7 @@ class _AboutView extends State<AboutView> {
                           TextButton.styleFrom(primary: Colors.grey.shade900),
                     ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.all(5),
-                  ),
-                  const Divider(),
-                  const Padding(
-                    padding: EdgeInsets.all(5),
-                  ),
+                  const SizedBox(height: 5),
                   SizedBox(
                     width: double.infinity,
                     child: TextButton.icon(
