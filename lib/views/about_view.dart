@@ -60,27 +60,10 @@ class _AboutView extends State<AboutView> {
                   SizedBox(
                     width: double.infinity,
                     child: TextButton.icon(
-                      onPressed: () {
-                        showAboutDialog(
-                            context: context,
-                            applicationLegalese:
-                                'App built by Cole Gawin. Source code '
-                                'available under the GNU General Public '
-                                'License v3.0');
-                      },
-                      icon: const Icon(Icons.perm_device_information),
-                      label: const Text('APP DETAILS'),
-                      style:
-                          TextButton.styleFrom(primary: Colors.grey.shade900),
-                    ),
-                  ),
-                  SizedBox(
-                    width: double.infinity,
-                    child: TextButton.icon(
                       onPressed: () =>
-                          launch('https://github.com/chroline/dhs_schedule'),
+                          launch('https://projects.colegaw.in/dhs-schedule'),
                       icon: const Icon(Icons.code),
-                      label: const Text('VIEW CODE ON GITHUB'),
+                      label: const Text('LEARN MORE ABOUT THIS APP'),
                       style:
                           TextButton.styleFrom(primary: Colors.grey.shade900),
                     ),
