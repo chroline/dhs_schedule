@@ -15,7 +15,7 @@ Widget renderSpecificSchedule(List<Period>? periods, String? daySchedule) =>
             child: Column(
               children: renderScheduleList(
                 periods: periods!,
-                onTap: ClassView.showClassView,
+                onTap: ClassView.show,
               ),
             ),
           );

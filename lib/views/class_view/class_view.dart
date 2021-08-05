@@ -16,7 +16,7 @@ class ClassView extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _ClassView();
 
-  static void showClassView(String id) => showModalBottomSheet(
+  static void show(String id) => showModalBottomSheet(
       context: mainKey.currentContext!,
       isScrollControlled: true,
       builder: (context) => Column(
@@ -45,6 +45,70 @@ class _ClassView extends State<ClassView> {
     icon = MapEntry(i.icon, allIcons[i.icon]);
     nameCtrl.value = TextEditingValue(text: i.name);
   }
+
+  void _showColorPicker() {
+    _saveText();
+    showDialog(
+        context: context,
+        builder: (context) => Dialog(
+              child: ColorPicker(
+                onTap: (theColor) {
+                  GetIt.I<Configuration>()
+                      .updatePeriod(widget.id, color: colors[theColor]!);
+                  setState(() => color = colors[theColor]!);
+                  Navigator.pop(context);
+                },
+              ),
+            ));
+  }
+
+  void _showIconPicker() {
+    _saveText();
+    showDialog(
+        context: context,
+        builder: (context) => Dialog(
+              child: IconPicker(
+                onTap: (k) {
+                  GetIt.I<Configuration>().updatePeriod(widget.id, icon: k.key);
+                  setState(() => icon = k as MapEntry<String, IconData>);
+                  Navigator.pop(context);
+                },
+              ),
+            ));
+  }
+
+  void _saveText() {
+    GetIt.I<Configuration>().updatePeriod(widget.id, name: nameCtrl.value.text);
+    FocusScope.of(context).unfocus();
+  }
+
+  @override
+  Widget build(BuildContext context) => ListView(
+        shrinkWrap: true,
+        physics: const BouncingScrollPhysics(),
+        children: <Widget>[
+          Container(
+            color: Colors.grey.shade50,
+            width: double.infinity,
+            child: Column(
+              children: [
+                appBar,
+                Padding(
+                  padding: const EdgeInsets.only(
+                      top: 20, bottom: 20, left: 20, right: 20),
+                  child: nameField(_saveText),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(
+                      top: 20, bottom: 20, left: 20, right: 20),
+                  child: iconSelector,
+                ),
+              ],
+            ),
+          ),
+          SizedBox(height: MediaQuery.of(context).viewInsets.bottom)
+        ],
+      );
 
   Widget get appBar => Material(
         elevation: 3,
@@ -146,67 +210,4 @@ class _ClassView extends State<ClassView> {
           ],
         ),
       );
-
-  @override
-  Widget build(BuildContext context) => ListView(
-        shrinkWrap: true,
-        physics: const BouncingScrollPhysics(),
-        children: <Widget>[
-          Container(
-            color: Colors.grey.shade50,
-            width: double.infinity,
-            child: Column(
-              children: [
-                appBar,
-                Padding(
-                  padding: const EdgeInsets.only(
-                      top: 20, bottom: 20, left: 20, right: 20),
-                  child: nameField(_saveText),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(
-                      top: 20, bottom: 20, left: 20, right: 20),
-                  child: iconSelector,
-                ),
-              ],
-            ),
-          )
-        ],
-      );
-
-  void _showColorPicker() {
-    _saveText();
-    showDialog(
-        context: context,
-        builder: (context) => Dialog(
-              child: ColorPicker(
-                onTap: (theColor) {
-                  GetIt.I<Configuration>()
-                      .updatePeriod(widget.id, color: colors[theColor]!);
-                  setState(() => color = colors[theColor]!);
-                  Navigator.pop(context);
-                },
-              ),
-            ));
-  }
-
-  void _showIconPicker() {
-    _saveText();
-    showDialog(
-        context: context,
-        builder: (context) => Dialog(
-              child: IconPicker(
-                onTap: (k) {
-                  GetIt.I<Configuration>().updatePeriod(widget.id, icon: k.key);
-                  setState(() => icon = k as MapEntry<String, IconData>);
-                  Navigator.pop(context);
-                },
-              ),
-            ));
-  }
-
-  void _saveText() {
-    GetIt.I<Configuration>().updatePeriod(widget.id, name: nameCtrl.value.text);
-    FocusScope.of(context).unfocus();
-  }
 }

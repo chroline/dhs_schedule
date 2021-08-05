@@ -31,7 +31,7 @@ class AllSchedules extends StatelessWidget {
                           ),
                           children: renderScheduleList(
                             periods: scheduleManager.schedules[e.key]!,
-                            onTap: ClassView.showClassView,
+                            onTap: ClassView.show,
                           ),
                         ),
                       ))
