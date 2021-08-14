@@ -18,7 +18,8 @@ List<Widget> renderScheduleList(
                 id: e.id,
                 name: GetIt.I<Configuration>().periods[e.id]!.name,
                 color: colors[GetIt.I<Configuration>().periods[e.id]!.color]!,
-                icon: allIcons[GetIt.I<Configuration>().periods[e.id]!.icon],
+                icon: allIcons[GetIt.I<Configuration>().periods[e.id]!.icon] ??
+                    allIcons['English'],
                 start: e.start,
                 end: e.end,
                 onTap: () => onTap(e.id),

@@ -42,7 +42,9 @@ class _ClassView extends State<ClassView> {
     super.initState();
     final i = GetIt.I<Configuration>().periods[widget.id]!;
     color = colors[i.color]!;
-    icon = MapEntry(i.icon, allIcons[i.icon]);
+    icon = allIcons[i.icon] != null
+        ? MapEntry(i.icon, allIcons[i.icon])
+        : MapEntry('English', allIcons['English']);
     nameCtrl.value = TextEditingValue(text: i.name);
   }
 

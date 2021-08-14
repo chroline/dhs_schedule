@@ -1,6 +1,7 @@
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 const icons = {
+  'homeroom': {'Homeroom': FontAwesomeIcons.users},
   'math': {
     'Geometry': FontAwesomeIcons.shapes,
     'Mathematics': FontAwesomeIcons.calculator,
@@ -15,19 +16,29 @@ const icons = {
     'English': FontAwesomeIcons.book,
     'Foreign Language': FontAwesomeIcons.comments
   },
+  'socialStudies': {
+    'History': FontAwesomeIcons.landmark,
+    'US History': FontAwesomeIcons.flagUsa,
+    'Political Science': FontAwesomeIcons.voteYea,
+    'Geography': FontAwesomeIcons.globeAmericas,
+    'Psychology': FontAwesomeIcons.brain
+  },
   'appliedArts': {
     'Architecture': FontAwesomeIcons.rulerCombined,
     'Engineering': FontAwesomeIcons.draftingCompass,
     'Woodworking': FontAwesomeIcons.screwdriver,
     'Computer Science': FontAwesomeIcons.code,
-    'Graphic Design': FontAwesomeIcons.brush
+    'Visual Arts': FontAwesomeIcons.brush
+  },
+  'business': {
+    'Business': FontAwesomeIcons.briefcase,
+    'Economics': FontAwesomeIcons.dollarSign
   },
   'gym': {
     'Health': FontAwesomeIcons.heart,
     'Weights': FontAwesomeIcons.dumbbell,
     'Gym': FontAwesomeIcons.running,
   },
-  'homeroom': {'Homeroom': FontAwesomeIcons.users},
 };
 
 Map allIcons = icons.entries.fold(

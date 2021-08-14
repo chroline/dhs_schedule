@@ -52,7 +52,11 @@ class IconPicker extends StatelessWidget {
             const Divider(),
             ...icons['language']!.entries.map(icon),
             const Divider(),
+            ...icons['socialStudies']!.entries.map(icon),
+            const Divider(),
             ...icons['appliedArts']!.entries.map(icon),
+            const Divider(),
+            ...icons['business']!.entries.map(icon),
             const Divider(),
             ...icons['gym']!.entries.map(icon),
           ]));
