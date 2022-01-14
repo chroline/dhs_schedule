@@ -196,9 +196,40 @@ schedules:
       start: 14:32
       end: 15:14
   # EXCEPTION SCHEDULES
+  "First Day":
+    - name: Homeroom
+      start: 8:10
+      end: 8:35
+    - name: Period 1
+      start: 8:40
+      end: 9:20
+    - name: Period 2
+      start: 9:25
+      end: 10:05
+    - name: Period 3
+      start: 10:10
+      end: 10:50
+    - name: Period 4
+      start: 10:55
+      end: 11:32
+    - name: Period 5-I
+      start: 11:37
+      end: 12:14
+    - name: Period 5-II
+      start: 12:22
+      end: 12:59
+    - name: Period 6
+      start: 13:04
+      end: 13:44
+    - name: Period 7
+      start: 13:49
+      end: 14:29
+    - name: Period 8
+      start: 14:34
+      end: 15:14
 
 exceptions:
-  2021-08-18: "100"
+  2021-08-18: "First Day"
   2021-08-19: "100"
   2021-08-20: "100"
   2021-08-30: "78"

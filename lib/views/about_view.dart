@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mailto/mailto.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../main.dart';
@@ -42,8 +43,10 @@ class _AboutView extends State<AboutView> {
                   SizedBox(
                     width: double.infinity,
                     child: TextButton.icon(
-                      onPressed: () =>
-                          launch('https://forms.gle/W4N5rpjo2jArKbERA'),
+                      onPressed: () => launch(Mailto(
+                        to: ['feedback@colegaw.in'],
+                        subject: 'DHS Schedule App Feedback',
+                      ).toString()),
                       icon: const Icon(Icons.speaker_notes),
                       label: const Text('PROVIDE FEEDBACK'),
                       style:
