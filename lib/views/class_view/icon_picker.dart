@@ -41,23 +41,10 @@ class IconPicker extends StatelessWidget {
       constraints: const BoxConstraints(maxWidth: 150, maxHeight: 450),
       child: ListView(
           padding: const EdgeInsets.symmetric(vertical: 5),
-          physics: const ClampingScrollPhysics(),
           shrinkWrap: true,
           children: [
-            ...icons['homeroom']!.entries.map(icon),
-            const Divider(),
-            ...icons['math']!.entries.map(icon),
-            const Divider(),
-            ...icons['science']!.entries.map(icon),
-            const Divider(),
-            ...icons['language']!.entries.map(icon),
-            const Divider(),
-            ...icons['socialStudies']!.entries.map(icon),
-            const Divider(),
-            ...icons['appliedArts']!.entries.map(icon),
-            const Divider(),
-            ...icons['business']!.entries.map(icon),
-            const Divider(),
-            ...icons['gym']!.entries.map(icon),
-          ]));
+            for (var sublist in icons.entries.map(
+                (entry) => [...entry.value.entries.map(icon), const Divider()]))
+              ...sublist
+          ]..removeLast()));
 }
