@@ -7,19 +7,14 @@ import '../../../components/organisms/specific_schedule.dart';
 import '../../../util/ctrl/configuration.dart';
 import '../../../util/ctrl/schedule_manager.dart';
 
-class SpecificDate extends StatefulWidget {
+class SpecificDate extends StatelessWidget {
   final DateTime date;
 
   const SpecificDate({Key? key, required this.date}) : super(key: key);
 
-  @override
-  State<StatefulWidget> createState() => _SpecificDate();
-}
-
-class _SpecificDate extends State<SpecificDate> {
   AppBar get appBar => AppBar(
         title: Text(
-          DateFormat('EEEE, MMMM d').format(widget.date),
+          DateFormat('EEEE, MMMM d').format(date),
           style: const TextStyle(fontWeight: FontWeight.w600),
         ),
       );
@@ -29,7 +24,7 @@ class _SpecificDate extends State<SpecificDate> {
       child: Consumer<Configuration>(
         builder: (a, b, c) => GetIt.I
             .get<ScheduleManager>()
-            .build(date: widget.date, builder: renderSpecificSchedule),
+            .build(date: date, builder: renderSpecificSchedule),
       ));
 
   @override

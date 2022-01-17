@@ -6,12 +6,7 @@ import '../../../components/organisms/specific_schedule.dart';
 import '../../../util/ctrl/configuration.dart';
 import '../../../util/ctrl/schedule_manager.dart';
 
-class Today extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() => _Today();
-}
-
-class _Today extends State<Today> {
+class Today extends StatelessWidget {
   @override
   Widget build(BuildContext context) => ChangeNotifierProvider.value(
         value: GetIt.I<Configuration>(),

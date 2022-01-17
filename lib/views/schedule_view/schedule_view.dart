@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import '../../main.dart';
@@ -11,6 +13,21 @@ class ScheduleView extends StatefulWidget {
 }
 
 class _ScheduleView extends State<ScheduleView> {
+  late Timer timer;
+
+  @override
+  void initState() {
+    super.initState();
+    timer = Timer.periodic(
+        const Duration(seconds: 1), (Timer t) => setState(() {}));
+  }
+
+  @override
+  void deactivate() {
+    super.deactivate();
+    timer.cancel();
+  }
+
   AppBar get appBar => AppBar(
       brightness: Brightness.dark,
       title: const Text(
