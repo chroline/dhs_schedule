@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../../main.dart';
 import 'pages/all_schedules.dart';
@@ -29,7 +30,7 @@ class _ScheduleView extends State<ScheduleView> {
   }
 
   AppBar get appBar => AppBar(
-      brightness: Brightness.dark,
+      systemOverlayStyle: SystemUiOverlayStyle.dark,
       title: const Text(
         'DHS Schedule',
         style: TextStyle(fontWeight: FontWeight.w600),
@@ -99,11 +100,11 @@ class _ScheduleView extends State<ScheduleView> {
   Future<void> _openDayPicker(BuildContext context) async {
     final date = await showDatePicker(
         context: context,
-        initialDate: DateTime.now().isBefore(DateTime(2021, 8, 18))
-            ? DateTime(2021, 8, 18)
+        initialDate: DateTime.now().isBefore(DateTime(2022, 8, 17))
+            ? DateTime(2022, 8, 17)
             : DateTime.now(),
-        firstDate: DateTime(2021, 8, 18),
-        lastDate: DateTime(2022, 6, 3));
+        firstDate: DateTime(2022, 8, 17),
+        lastDate: DateTime(2023, 6, 2));
     if (date != null) {
       await Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => SpecificDate(

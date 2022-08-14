@@ -60,10 +60,13 @@ class App extends StatefulWidget {
 class _App extends State<App> {
   @override
   Widget build(BuildContext context) {
-    if (Platform.isLinux || Platform.isMacOS || Platform.isWindows) {
-      DesktopWindow.setWindowSize(const Size(512, 724));
-      DesktopWindow.setMinWindowSize(const Size(512, 724));
-    }
+    try {
+      if (Platform.isLinux || Platform.isMacOS || Platform.isWindows) {
+        DesktopWindow.setWindowSize(const Size(512, 724));
+        DesktopWindow.setMinWindowSize(const Size(512, 724));
+      }
+      // ignore: empty_catches
+    } catch (e) {}
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
